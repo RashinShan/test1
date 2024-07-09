@@ -1,0 +1,59 @@
+{
+  "name": "myapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^42.0.0",
+    "@ckeditor/ckeditor5-build-classic": "^42.0.0",
+    "@ckeditor/ckeditor5-core": "^42.0.0",
+    "@ckeditor/ckeditor5-editor-balloon": "^42.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "^42.0.0",
+    "@ckeditor/ckeditor5-editor-inline": "^42.0.0",
+    "@ckeditor/ckeditor5-essentials": "^42.0.0",
+    "@ckeditor/ckeditor5-heading": "^42.0.0",
+    "@ckeditor/ckeditor5-link": "^42.0.0",
+    "@ckeditor/ckeditor5-list": "^42.0.0",
+    "@ckeditor/ckeditor5-media-embed": "^42.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^42.0.0",
+    "@ckeditor/ckeditor5-react": "^8.0.0",
+    "@ckeditor/ckeditor5-table": "^42.0.0",
+    "@ckeditor/ckeditor5-upload": "^42.0.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@tinymce/tinymce-react": "^5.1.1",
+    "axios": "^1.7.2",
+    "ckeditor5": "^42.0.0",
+    "jodit": "^4.2.27",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.2.3",
+    "react-scripts": "5.0.1",
+    "tinymce": "^7.2.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
