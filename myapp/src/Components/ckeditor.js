@@ -27,7 +27,7 @@ function ImageUpload() {
     editorRef.current.getEditor().format(format, true);
     setShowPopover(false);
   };
-
+//vxvxcvx
   const handleFileChange = (event, type) => {
     const file = event.target.files[0];
     const reader = new FileReader();
