@@ -2,6 +2,10 @@
   display: none; 
 }
 
+.quill-editor .ql-editor {
+  line-height: 2.8; /* Adjust this value as needed */
+}
+
 .popover {
   position: absolute;
   background-color: #ffffff;
