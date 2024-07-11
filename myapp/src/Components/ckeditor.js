@@ -2,6 +2,12 @@ import React, { useState, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './customQuill.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(fas);
+
+
 
 function ImageUpload() {
   const [value, setValue] = useState('');
@@ -28,6 +34,7 @@ function ImageUpload() {
     setShowPopover(false);
   };
 //vxvxcvx
+//janani
   const handleFileChange = (event, type) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -53,46 +60,58 @@ function ImageUpload() {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-      <h1>Hellowwwwwwwww</h1>
+      <div>
+          <h1>Dairy App</h1>
+      
+      <button
+        onClick={handleTogglePopover}
+        style={{
+          position: 'absolute',
+          left: '10px',
+          zIndex: 1000,
+          background: '#ffffff',
+          color: '#000000',
+          border: '1px solid black',
+          borderRadius: '30px',
+          padding: '10px 14px',
+          cursor: 'pointer',
+          fontSize: '20px'
+        }}
+      >
+        +
+      </button>
       <ReactQuill
         ref={editorRef}
         theme="snow"
         value={value}
         onChange={setValue}
         modules={modules}
-      />
-      <button
-        onClick={handleTogglePopover}
+        placeholder='Enter Your Thought'
         style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          zIndex: 1000,
-          background: '#495057',
-          color: '#ffffff',
-          border: 'none',
-          borderRadius: '4px',
-          padding: '10px 15px',
-          cursor: 'pointer'
+          position:'relative',
+          top: '90px'
         }}
-      >
-        +
-      </button>
+      />
+
       {showPopover && (
         <div
           className="popover"
           style={{
-            top: '50px', // Adjust the position as needed
-            right: '10px'
+            top: '120px', // Adjust the position as needed
+            left: '10px',
+            display: 'flex'
           }}
         >
-          <button onClick={() => handleFormat('bold')}>Bold</button>
-          <button onClick={() => handleFormat('italic')}>Italic</button>
+          <button onClick={() => handleFormat('bold')}><FontAwesomeIcon icon="fa-solid fa-bold" /></button>
+          <button onClick={() => handleFormat('italic')}><FontAwesomeIcon icon="fa-solid fa-italic" /></button>
           <button onClick={() => handleFormat('header', '1')}>H1</button>
           <button onClick={() => handleFormat('header', '2')}>H2</button>
-          <label>
-            Insert Image
+          <label
+           style={{
+            margin:'5px'
+          }}
+          >
+          <FontAwesomeIcon icon="fa-solid fa-image" />
             <input
               type="file"
               accept="image/*"
@@ -100,8 +119,12 @@ function ImageUpload() {
               onChange={(event) => handleFileChange(event, 'image')}
             />
           </label>
-          <label>
-            Insert Video
+          <label
+            style={{
+              margin:'5px'
+            }}
+          >
+          <FontAwesomeIcon icon="fa-solid fa-video" />
             <input
               type="file"
               accept="video/*"
@@ -111,7 +134,7 @@ function ImageUpload() {
           </label>
         </div>
       )}
-    </div>
+         </div>
   );
 }
 
