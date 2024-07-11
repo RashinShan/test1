@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './customQuill.css';
@@ -7,11 +7,10 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(fas);
 
-
-
 function ImageUpload() {
   const [value, setValue] = useState('');
   const [showPopover, setShowPopover] = useState(false);
+  const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 });
   const editorRef = useRef(null);
 
   const modules = {
@@ -25,7 +24,9 @@ function ImageUpload() {
     ],
   };
 
-  const handleTogglePopover = () => {
+  const handleTogglePopover = (event) => {
+    const cursorPosition = editorRef.current.getEditor().getBounds(editorRef.current.getEditor().getSelection().index);
+    setPopoverPosition({ top: cursorPosition.top + cursorPosition.height, left: cursorPosition.left });
     setShowPopover(!showPopover);
   };
 
@@ -33,8 +34,7 @@ function ImageUpload() {
     editorRef.current.getEditor().format(format, true);
     setShowPopover(false);
   };
-//vxvxcvx
-//janani
+
   const handleFileChange = (event, type) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -59,15 +59,34 @@ function ImageUpload() {
     setShowPopover(false);
   };
 
+  useEffect(() => {
+    const editor = editorRef.current.getEditor();
+
+    editor.on('selection-change', (range) => {
+      if (range) {
+        const cursorPosition = editor.getBounds(range.index);
+        setPopoverPosition({ top: cursorPosition.top + cursorPosition.height, left: cursorPosition.left });
+      }
+    });
+
+    editor.on('text-change', () => {
+      const range = editor.getSelection();
+      if (range) {
+        const cursorPosition = editor.getBounds(range.index);
+        setPopoverPosition({ top: cursorPosition.top + cursorPosition.height, left: cursorPosition.left });
+      }
+    });
+  }, []);
+
   return (
-      <div>
-          <h1>Dairy App</h1>
-      
+    <div>
+      <h1>Diary App</h1>
       <button
         onClick={handleTogglePopover}
         style={{
           position: 'absolute',
-          left: '10px',
+          top: `${popoverPosition.top}px`,
+          left: `${popoverPosition.left}px`,
           zIndex: 1000,
           background: '#ffffff',
           color: '#000000',
@@ -88,7 +107,7 @@ function ImageUpload() {
         modules={modules}
         placeholder='Enter Your Thought'
         style={{
-          position:'relative',
+          position: 'relative',
           top: '90px'
         }}
       />
@@ -97,8 +116,8 @@ function ImageUpload() {
         <div
           className="popover"
           style={{
-            top: '120px', // Adjust the position as needed
-            left: '10px',
+            top: `${popoverPosition.top + 20}px`,
+            left: `${popoverPosition.left}px`,
             display: 'flex'
           }}
         >
@@ -107,11 +126,11 @@ function ImageUpload() {
           <button onClick={() => handleFormat('header', '1')}>H1</button>
           <button onClick={() => handleFormat('header', '2')}>H2</button>
           <label
-           style={{
-            margin:'5px'
-          }}
+            style={{
+              margin: '5px'
+            }}
           >
-          <FontAwesomeIcon icon="fa-solid fa-image" />
+            <FontAwesomeIcon icon="fa-solid fa-image" />
             <input
               type="file"
               accept="image/*"
@@ -121,10 +140,10 @@ function ImageUpload() {
           </label>
           <label
             style={{
-              margin:'5px'
+              margin: '5px'
             }}
           >
-          <FontAwesomeIcon icon="fa-solid fa-video" />
+            <FontAwesomeIcon icon="fa-solid fa-video" />
             <input
               type="file"
               accept="video/*"
@@ -134,7 +153,7 @@ function ImageUpload() {
           </label>
         </div>
       )}
-         </div>
+    </div>
   );
 }
 
