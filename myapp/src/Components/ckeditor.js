@@ -9,6 +9,7 @@ library.add(fas);
 
 function ImageUpload() {
   const [value, setValue] = useState('');
+  console.log(value);
   const [showPopover, setShowPopover] = useState(false);
   const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 });
   const [isRecording, setIsRecording] = useState(false);
@@ -99,6 +100,7 @@ function ImageUpload() {
     }
   };
 //hhkhkhkjkjk
+//hsaggdgd
   useEffect(() => {
     const editor = editorRef.current.getEditor();
 
@@ -115,27 +117,27 @@ function ImageUpload() {
   }, []);
 
   return (
-    <div>
+    <div style={{marginLeft: '20px', marginRight:'20px' }}>
       <h1>Diary App</h1>
       <div style={{ position: 'relative' }}>
         <button
           onClick={handleTogglePopover}
           style={{
             position: 'absolute',
-            top: `${popoverPosition.top - 5}px`,
-            left: `${popoverPosition.left}px`,
+            top: `${popoverPosition.top - 15}px`,
+            left: `${popoverPosition.left + 20}px`,
             zIndex: 1000,
             background: '#ffffff',
             color: '#000000',
-            border: '1px solid black',
+            border: 'none',
             borderRadius: '100px',
-            padding: '0.1px 0.5px',
+            padding: '4px 8.5px',
             cursor: 'pointer',
             fontSize: '16px',
             transform: 'translate(-50%, -50%)' // Adjusts the button's position to be centered on the cursor
           }}
         >
-          +
+          <FontAwesomeIcon icon="fa-solid fa-plus" />
         </button>
         <ReactQuill
           ref={editorRef}
@@ -156,19 +158,19 @@ function ImageUpload() {
         onClick={isRecording ? stopVoiceRecognition : startVoiceRecognition}
         style={{ 
           position: 'absolute', 
-          top: `${popoverPosition.top + 40}px`, 
-          left: `${popoverPosition.left}px`, 
+          top: `${popoverPosition.top + 58.1}px`, 
+          left: `${popoverPosition.left +55}px`, 
           zIndex: 1000, 
           background: '#ffffff', 
           color: '#000000', 
-          border: '1px solid black', 
+          border: 'none', 
           borderRadius: '100px', 
-          padding: '0.1px 0.5px', 
+          padding: '5px 8px', 
           cursor: 'pointer', 
-          fontSize: '16px' 
+          fontSize: '12pxx' 
         }}
       >
-        {isRecording ? 'Stop Voice' : 'Start Voice'}
+        {isRecording ? <FontAwesomeIcon icon="fa-solid fa-circle-stop" /> : <FontAwesomeIcon icon="fa-solid fa-microphone" />}
       </button>
 
       {showPopover && (
