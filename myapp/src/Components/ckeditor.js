@@ -10,6 +10,7 @@ library.add(fas);
 function ImageUpload() {
   const [value, setValue] = useState('');
   console.log(value);
+  console.log(value);
   const [showPopover, setShowPopover] = useState(false);
   const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 });
   const [isRecording, setIsRecording] = useState(false);
@@ -101,6 +102,7 @@ function ImageUpload() {
   };
 //hhkhkhkjkjk
 //hsaggdgd
+//hsaggdgd
   useEffect(() => {
     const editor = editorRef.current.getEditor();
 
@@ -117,23 +119,24 @@ function ImageUpload() {
   }, []);
 
   return (
-    <div style={{marginLeft: '20px', marginRight:'20px' }}>
+    <div style={{marginLeft: '200px', marginRight:'200px' }}>
       <h1>Diary App</h1>
+      <br></br>
       <div style={{ position: 'relative' }}>
         <button
           onClick={handleTogglePopover}
           style={{
             position: 'absolute',
-            top: `${popoverPosition.top - 15}px`,
+            top: `${popoverPosition.top - -12}px`,
             left: `${popoverPosition.left + 20}px`,
             zIndex: 1000,
-            background: '#ffffff',
+            background: 'none',
             color: '#000000',
             border: 'none',
             borderRadius: '100px',
             padding: '4px 8.5px',
             cursor: 'pointer',
-            fontSize: '16px',
+            fontSize: '20px',
             transform: 'translate(-50%, -50%)' // Adjusts the button's position to be centered on the cursor
           }}
         >
@@ -146,6 +149,8 @@ function ImageUpload() {
           onChange={setValue}
           modules={modules}
           placeholder='Enter Your Thought'
+          webkit-input-placeholder = "white"
+          fontSize = '20px'
           className='quill-editor'
           style={{
             position: 'relative',
@@ -158,16 +163,18 @@ function ImageUpload() {
         onClick={isRecording ? stopVoiceRecognition : startVoiceRecognition}
         style={{ 
           position: 'absolute', 
-          top: `${popoverPosition.top + 58.1}px`, 
-          left: `${popoverPosition.left +55}px`, 
+          top: `${popoverPosition.top + 105.5}px`, 
+          left: `${popoverPosition.left +230}px`, 
           zIndex: 1000, 
-          background: '#ffffff', 
+          background: 'none', 
           color: '#000000', 
+          border: 'none', 
           border: 'none', 
           borderRadius: '100px', 
           padding: '5px 8px', 
+          padding: '5px 8px', 
           cursor: 'pointer', 
-          fontSize: '12pxx' 
+          fontSize: '15px' 
         }}
       >
         {isRecording ? <FontAwesomeIcon icon="fa-solid fa-circle-stop" /> : <FontAwesomeIcon icon="fa-solid fa-microphone" />}
@@ -177,8 +184,8 @@ function ImageUpload() {
         <div
           className="popover"
           style={{
-            top: `${popoverPosition.top + 1}px`,
-            left: `${popoverPosition.left}px`,
+            top: `${popoverPosition.top + 85.5}px`,
+            left: `${popoverPosition.left + 260}px`,
             display: 'flex',
             position: 'absolute'
           }}
