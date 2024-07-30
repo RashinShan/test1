@@ -1,0 +1,12 @@
+@media (min-width: 0) and (max-width: 768px) {
+
+#attachment{
+    margin: auto;
+    text-align: center;
+    margin-left: 50px;
+  }
+  #notification{
+    margin-left: 50px;
+  }
+
+}

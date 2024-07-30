@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/*login page*/
+#loginbody{
+  margin-left: 250px;
+  margin-right: 250px;
+}
+#loginform{
+  margin: 8px;
+}
+
+#signupbody{
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+/*OTP Page*/
+#OTPbody{
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+/*Forget Password Page*/
+#frgtpswbody{
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+/*homepage*/
+.carousel-inner {
+  position: relative;
+  width: 47% !important;
+  overflow: hidden;
+  text-align: center;
+  margin: auto;}
+
+  .carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 110%;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15%;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+}
+
+.carousel {
+  position: relative;
+  width: 70%;
+  margin: auto;
+}
+
+#attachment{
+  margin: auto;
+  text-align: center;
+  margin-left: 45px;
+}
+#notification{
+  margin-left: 45px;
+}
+
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: transparent !important;
+}
+
+#buttongrp{
+  display: flex;
+  margin: auto;
+  float: right;
+}
+.modal{
+  height: 45% !important;
+}
+.gap-2 {
+  margin-top: 15%;
+  gap: .5rem !important;
+}
+
+/*Entry page css*/
+/*Entry Navigation*/
+#entrynavigation{
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+#selecteddate{
+  margin-left: 24px;
+    margin-top: -20px;
+}
